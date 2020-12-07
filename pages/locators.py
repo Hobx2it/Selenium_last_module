@@ -18,6 +18,7 @@ class ProductPageLocators():
     PRODUCT_NAME = (By.CSS_SELECTOR, ".product_main h1")
     PRODUCT_NAME_IN_BASKET = (By.CSS_SELECTOR, ".alert-success:first-child strong")
     SUM_IN_BASKET = (By.CSS_SELECTOR, ".alert-info .alertinner p:first-child")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, ".alert-success")
     
     
     

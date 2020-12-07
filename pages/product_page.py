@@ -18,6 +18,12 @@ class ProductPage(BasePage):
         product_name_in_basket = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME_IN_BASKET).text
         assert self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text == product_name_in_basket, 'Названия не совпали'
         assert self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text in self.browser.find_element(*ProductPageLocators.SUM_IN_BASKET).text, 'Цены товара и в корзине не совпали'
+        
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but should not be"
+        
+    def should_not_be_success_message_with_is_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is not disappeared, but should be"
 
 
         
