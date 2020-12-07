@@ -12,3 +12,12 @@ class LoginPageLocators():
     REGISTRATION_PASSWORD = (By.CSS_SELECTOR, "#id_registration-password1")
     REGISTRATION_PASSWORD_DUPLICATE = (By.CSS_SELECTOR, "#id_registration-password2")
     
+class ProductPageLocators():
+    ADD_TO_BASKET = (By.CSS_SELECTOR, ".btn-add-to-basket")  
+    PRODUCT_PRICE = (By.CSS_SELECTOR, ".price_color")
+    PRODUCT_NAME = (By.CSS_SELECTOR, ".product_main h1")
+    PRODUCT_NAME_IN_BASKET = (By.CSS_SELECTOR, ".alert-success:first-child strong")
+    SUM_IN_BASKET = (By.CSS_SELECTOR, ".alert-info .alertinner p:first-child")
+    
+    
+    
