@@ -22,7 +22,7 @@ import selenium
 # @pytest.mark.parametrize('link', [i for i in urls if i != "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer7"]
 #                                   + [pytest.param(bugged_link, marks=pytest.mark.xfail(reason='Исправлять не будут ' + bugged_link))])
 
-@pytest.mark.addbasket
+@pytest.mark.need_review
 class TestUserAddToBasketFromProductPage():
     
   
@@ -40,7 +40,7 @@ class TestUserAddToBasketFromProductPage():
         login_page.should_be_authorized_user()
         
     
-    #@pytest.mark.skip    
+    @pytest.mark.skip    
     def test_user_cant_see_success_message(self, browser):
         self.browser = browser
         '''Открываем страницу товара 
@@ -61,8 +61,15 @@ class TestUserAddToBasketFromProductPage():
         page.should_be_product_page()
         page.product_to_basket()
         time.sleep(1)
-    
-    
+        
+@pytest.mark.need_review    
+def test_guest_can_add_product_to_basket(browser):
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
+    page = ProductPage(browser, link)
+    page.open()
+    page.should_be_product_page()
+    page.product_to_basket()
+    time.sleep(1)    
 
 
     
@@ -99,12 +106,14 @@ def test_guest_should_see_login_link_on_product_page(browser):
     page.open()
     page.should_be_login_link()
     
+@pytest.mark.need_review    
 def test_guest_can_go_to_login_page_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     page = ProductPage(browser, link)
     page.open()
     page.go_to_login_page()
-    
+
+@pytest.mark.need_review    
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
 
     '''Гость открывает страницу товара
